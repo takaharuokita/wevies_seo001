@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="jp" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content=">動画を駆使した、高品質なWebサイト制作！忘れられない×高品質を届けます。">
+    <meta name="keywords" content="ホームページ制作,高品質,動画,HTML,CSS,JavaScript,デザイン,レイアウト,SEO">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/fb.png">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Noto+Sans+JP:400,700" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script>
+      $(function() {
+        const hum = $('#hamburger, .close')
+        const nav = $('.sp-nav')
+        hum.on('click', function(){
+          nav.toggleClass('toggle');
+        });
+      });
+  </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+      $('#openModal,#openModal2').click(function(){
+          $('#modalArea').fadeIn();
+      });
+      $('#closeModal , #modalBg,#cansel').click(function(){
+        $('#modalArea').fadeOut();
+      });
+    });
+    
+     $(function() {
+     var h = $(window).height();
+      $('#loading__wrapper').css('display','none');
+      $('#is-loading ,#loading').height(h).css('display','block');
+     });
+    
+     $(window).load(function () {
+      $('#is-loading').delay(900).fadeOut(800);
+      $('#loading').delay(600).fadeOut(300);
+      $('#loading__wrapper').css('display', 'block');
+     });
+    
+    
+     $(function(){
+      setTimeout('stopload()',10000);
+      });
+    
+      function stopload(){
+       $('#loading__wrapper').css('display','block');
+       $('#is-loading').delay(900).fadeOut(800);
+       $('#loading').delay(600).fadeOut(300);
+     }
+    </script>
+    <script>
+     $(function(){
+        $('a[href^=#]').click(function() {
+           var speed = 1000; // ミリ秒
+           var href= $(this).attr("href");
+           var target = $(href == "#" || href == "" ? 'html' : href);
+           var position = target.offset().top;
+           $('body,html').animate({scrollTop:position}, speed, 'swing');
+           return false;
+        });
+     });
+       jQuery(function(){
+       jQuery(window).scroll(function (){
+         jQuery('.fadein').each(function(){
+           var elemPos = jQuery(this).offset().top;
+           var scroll = jQuery(window).scrollTop();
+           var windowHeight = jQuery(window).height();
+           if (scroll > elemPos - windowHeight + 100){
+             jQuery(this).addClass('scrollin');
+           }
+         });
+       });
+     });
+     jQuery(function(){
+       jQuery(window).scroll(function (){
+         jQuery('.fadein02').each(function(){
+           var elemPos = jQuery(this).offset().top;
+           var scroll = jQuery(window).scrollTop();
+           var windowHeight = jQuery(window).height();
+           if (scroll > elemPos - windowHeight + 300){
+             jQuery(this).addClass('scrollin02');
+           }
+         });
+       });
+     });
+     
+     $(function(){
+$(window).on("load",function(pager){
+  var eventElemArray = [];
+  var _count = 0;
+  var _countFix = 0;
+  $(window).on('load scroll resize',function(){
+    eventElemArray = [];
+    _count = 0;
+    $('[data-nav]').each(function(i,pager){
+      eventElemArray.push( $(pager).offset().top );
+    });
+    for(var _i = 0;_i < eventElemArray.length; _i++){
+      if( $(window).scrollTop() + ($(window).height() * 0.5) > eventElemArray[_i] ){
+        _count++;
+      }
+    }
+    if(_count !== _countFix){
+      _countFix = _count;
+      $('.nav__dot li').removeClass('current');
+      $('.nav__dot li').eq(_count-1).addClass('current');
+    }
+  });
+
+  $('.nav__dot li').on('click', function() {
+    var speed = 700;
+    var href = $(this).attr('data-nav-href');
+    var offset = $(this).attr('data-nav-offset')|0;
+    var target = $(href == '' ? 'html' : href);
+    var position = target.offset().top + offset
+    $('body,html').animate({scrollTop:position}, speed);
+    return false;
+  });
+});
+});
+     </script>
+    <title>Wevies｜SEO MEO 対策</title>
+  </head>
+  <body  id="section01">
+
+        <!-- ################################
+    #
+    #＿＿ヘッダー
+    #
+    ##################################-->
+    <!-- ヘッダー＿ナビゲーションメニュー -->
+    
+    <div id="nav-drawer" class="fwfw">
+      <a href="">
+        <img src="images/icon/icon_fwfw.svg" alt="">
+      </a>
+      <!-- <input id="nav-input" type="checkbox" class="nav-unshown">
+      <label id="nav-open" for="nav-input"><span>aaa</span></label>
+      <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+      <div id="nav-content">
+        <div class="m50">
+          <i class="fas fa-cubes fa-lg"></i>
+          <a href="#section01" class="btn02">集客戦略</a>
+        </div>
+        <div class="m50">
+         <i class="fas fa-sitemap fa-lg"></i>
+         <a href="#section02" class="btn02">事例データ</a>
+        </div>
+        <div class="m50">
+          <i class="fas fa-clipboard fa-lg"></i>
+          <a href="#section03" class="btn02">現状把握</a>
+        </div>
+        <div class="m50">        
+          <i class="fas fa-crown fa-lg"></i>
+          <a href="#section04" class="btn02">エビデンス</a>
+        </div>
+        <div class="m50">        
+          <i class="fas fa-user fa-lg"></i>
+          <a href="#section05" class="btn02">お客様の声</a>
+        </div>
+        <div class="m50">        
+          <i class="fas fa-tasks fa-lg"></i>
+          <a href="#section06" class="btn02">手続きの流れ</a>
+        </div>
+        <div class="m50">        
+          <i class="fas fa-yen-sign fa-lg"></i>
+          <a href="#section06" class="btn02">料金プラン</a>
+        </div>
+      </div> -->
+    </div>
+
+      <!-- ################################
+    #
+    #＿＿ビデオコンテンツ
+    #
+    ##################################-->
+    <!-- メインビデオ＿コンテンツ -->
+    <div class="clum01 bg">
+    </div>
+    　 <!-- ################################
+      #
+      #＿＿メイン
+      #
+      ##################################-->
+    <main ontouchstart="">
+
+
+<ul class="nav__dot">
+ <li class="current" data-nav-href="#section01"></li>
+ <li data-nav-href="#section02"></li>
+ <li data-nav-href="#section03"></li>
+ <li data-nav-href="#section04"></li>
+ <li data-nav-href="#section05"></li>
+ <li data-nav-href="#section06"></li>
+ <li data-nav-href="#section07"></li>
+</ul>
+
+<div class="main">
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+<div  class="block" data-nav="data-nav">
+
+
+
+      <!-- コンテンツ＿Type.2　2カラム　画像＞見出し -->
+      <section class="blueG_bg h_240">
+
+        <!-- 始め -->
+        <div class="flexStart-C colum1_h20 blue_bg">
+          <div class="colum3">
+            <img src="images/icatch/10.png" alt="" width="400px">
+          </div>
+          <div class="colum3">
+            <div class="mail">
+              <a href="" class="btn btn-flat2 hover-white2 lp9-mail3">
+              <span>まずは診断してみる</span>
+              <i class="fas fa-angle-right fa-position-right"></i>
+            </a>
+            </div>
+          </div>
+        </div>
+
+
+    <h2 class="ttl m50_t m5_l">
+      まずは
+      <span style="font-size: 4rem;">
+        グラフ</span>
+      をご覧ください。</h2>
+      <br>
+
+        <!-- 
+          #######################
+
+          flex＿ラップスタート
+
+          ####################### -->
+        <div class="w_70 bd03" id="">
+
+             <!-- flex＿インナー➀スタート -->
+          <div class="flexStart-B">
+          <div class="colum2 x5y5 g_ft">
+
+            <table>
+              <thead>
+                <tr>
+                  <th>AAE</th>
+                  <th>飲食店</th>
+                </tr>
+              </thead>
+            </table>
+
+            <br>
+            <h3 class="f_white">
+              自社評価指標 AAE の 診断結果
+            </h3>
+            <h1 class="f_red">
+              訴求力
+              <span class="f_white">
+                が少ない
+              </span>
+            </h1>
+              <br>
+              <h4 class="f_white g_ft2">
+                ▶ 課題とお悩み
+
+              </h4>
+              <P class="f_white g_ft2">
+                いいエリアに出店したものの訴求力が不足しており、
+                お客様層が極端に狭いのがわかった。
+              </P>
+          </div>
+          <div class="colum2 data01">
+          </div>
+        </div>
+
+         <!-- flex＿インナー②スタート -->
+        <div class="flexStart-B gray_bg w_in top10">
+          <div class="colum2 x5y5 g_ft">
+            
+            
+            <h4 class="ico">
+              AAE 診断後 施策考察</h4>
+
+              <br>
+              <h4 class="f_black g_ft2">
+              【AAE診断で見えてきたもの】
+
+              </h4>
+              <P class="f_black g_ft2">
+                ネットでの広告展開はしてなかった。<br>
+                幅広い顧客層を意識していたのに偏りがあった。<br>
+                エリアを練って出店をしたことは、良いスコアだった。<br>
+                周辺のお店との差別化や、価格帯は適切だった。<br>
+              </P>
+          </div>
+
+          <div class="colum2 g_ft top5">
+            
+            
+            <h4 class="ico_none">
+              <br></h4>
+
+              <br>
+              <h4 class="f_black g_ft2">
+                【お客様の視察考察】
+
+              </h4>
+              <P class="f_black g_ft2">
+                『ネットの展開をしていく（大手食レポサイトに掲載）』<br>
+                『Webサイト展開をする、それに広告をかけたりしたい』<br>
+                『お客様層を吟味し商品メニューや見せ方を工夫する』<br>
+                『エリアの利点を生かし、差別化できているものを伸ばす』<br>
+                『施策をした後に、またAAE診断で結果を見てみたい』
+              </P>
+          </div>
+
+
+        </div>
+
+
+        </div>
+
+        <!-- 
+          #######################
+
+          flex＿ラップスタート
+          
+          ####################### -->
+         <div class="w_70 bd03 m50_t" id="">
+
+          <!-- flex＿インナー➀スタート -->
+       <div class="flexStart-B">
+       <div class="colum2 x5y5 g_ft">
+
+         <table>
+           <thead>
+             <tr>
+               <th>AAE</th>
+               <th>飲食店</th>
+             </tr>
+           </thead>
+         </table>
+
+         <br>
+         <h3 class="f_white">
+           自社評価指標 AAE の 診断結果
+         </h3>
+         <h1 class="f_red">
+           訴求力
+           <span class="f_white">
+             が少ない
+           </span>
+         </h1>
+           <br>
+           <h4 class="f_white g_ft2">
+             ▶ 課題とお悩み
+
+           </h4>
+           <P class="f_white g_ft2">
+             いいエリアに出店したものの訴求力が不足しており、
+             お客様層が極端に狭いのがわかった。
+           </P>
+       </div>
+       <div class="colum2 data01">
+       </div>
+     </div>
+
+      <!-- flex＿インナー②スタート -->
+     <div class="flexStart-B gray_bg w_in top10">
+       <div class="colum2 x5y5 g_ft">
+         
+         
+         <h4 class="ico">
+           AAE 診断後 施策考察</h4>
+
+           <br>
+           <h4 class="f_black g_ft2">
+           【AAE診断で見えてきたもの】
+
+           </h4>
+           <P class="f_black g_ft2">
+             ネットでの広告展開はしてなかった。<br>
+             幅広い顧客層を意識していたのに偏りがあった。<br>
+             エリアを練って出店をしたことは、良いスコアだった。<br>
+             周辺のお店との差別化や、価格帯は適切だった。<br>
+           </P>
+       </div>
+
+       <div class="colum2 g_ft top5">
+         <h4 class="ico_none">
+           <br></h4>
+
+           <br>
+           <h4 class="f_black g_ft2">
+             【お客様の視察考察】
+
+           </h4>
+           <P class="f_black g_ft2">
+             『ネットの展開をしていく（大手食レポサイトに掲載）』<br>
+             『Webサイト展開をする、それに広告をかけたりしたい』<br>
+             『お客様層を吟味し商品メニューや見せ方を工夫する』<br>
+             『エリアの利点を生かし、差別化できているものを伸ばす』<br>
+             『施策をした後に、またAAE診断で結果を見てみたい』
+           </P>
+       </div>
+
+
+     </div>
+
+
+     </div>
+
+      </section>
+  
+
+  
+      <!-- お問い合わせ -->
+      <aside class="c_contact" style="background-image:url(images/icatch/contact.jpg)">
+        <div class="u_inner">
+          <p>AAE診断は、<em>完全無料</em> です。
+            <br class="u_visible_pc">
+            <br class="u_visible_sp">まずは、お気軽に診断してみてください。</p>
+  
+          <div class="tel">
+            <a class="u_tel splp9-call2" href="tel:03-4405-5679">03-4405-5679</a>
+            <small class="g_ft">受付時間 10：00~19：00（ 土日祝を除く ）</small></div>
+          <div class="mail">
+            <a href="" class="btn btn-flat hover-white lp9-mail3">
+            <span>まずは診断してみる</span><i class="fas fa-angle-right fa-position-right"></i>
+          </a>
+          </div>
+        </div>
+      </aside>
+
+            <!-- コンテンツ＿Type.1　縦2カラム　画像＞見出し -->
+            <section class="w_max fadein02">
+              <div class="w_in flexStart-A-R set" id="shadow">
+                <div class="colum2 bg03">
+                </div>
+                <div class="colum2 m100">
+                  <h1 class="f_gold">わからないなんて、言わせません。</h1>
+                  <br>
+                  <p>＿＿＿＿＿＿</p><br><br>
+                  <h3 class="f_black">SEO、MEOってわからなくて…</h3>
+                  <h3 class="f_black">広告運用はいっぱいあってわからない</h3> 
+                  <h3 class="f_black">集客でインターネットは使わないかな…</h3>
+                </div>
+              </div>
+            </section>
+          </div>
+          <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+                <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+          <div id="section02" class="block block--gray" data-nav="data-nav">
+            <div class="colum1">
+              <br>                
+              <h1><p>＿＿＿＿＿＿</p><br>
+                事例データ
+                <p>＿＿＿＿＿＿</p>
+              </h1><br>
+            </div>
+            <br>
+
+            <div class="colum1 bg04">
+            </div>
+
+      <!-- コンテンツ＿Type.2　2カラム　画像＞見出し -->
+      <section class="w_max fadein02">
+        <div class="w_in flexStart-B set" id="shadow">
+          <div class="colum2 data01">
+          </div>
+          <div class="colum2">
+            <h1>評価後の対策</h1>
+            <p>＿＿＿＿＿＿</p><br>
+            <p></p>
+            <p>被リンクの改善後、アクセス数増加</p>
+            <p>タグの適正配置に置ける、契約数のUP</p>
+            <br><br>
+            <h1 class="f_gold">お客様の声</h1>
+            <p>＿＿＿＿＿＿</p><br>
+            <h3 class="f_gold">
+              「無料解析後、施策の見える可が出来た」
+            </h3>
+            <a class="btn02 set-in poSec01-B" id="openModal2">
+              完全無料でお問い合わせ
+            </a>
+            <a class="btn01 set-in poSec01-A" id="openModal2">
+              <i class="far fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <div class="colum1 bg04">
+    </div>
+
+      <!-- コンテンツ＿Type.2　2カラム　見出し＞画像 -->
+      <section class="w_max fadein02">
+      <div class="w_in flexStart-B-R set" id="shadow">
+        <div class="colum2 data02">
+        </div>
+        <div class="colum2">
+          <h1>評価後の対策</h1>
+          <p>＿＿＿＿＿＿</p><br>
+          <p></p>
+          <p>被リンクの改善後、アクセス数増加</p>
+          <p>タグの適正配置に置ける、契約数のUP</p>
+          <br><br>
+          <h1 class="f_gold">お客様の声</h1>
+          <p>＿＿＿＿＿＿</p><br>
+          <h3 class="f_gold">
+            「無料解析後、施策の見える可が出来た」
+          </h3>
+          <a class="btn02 set-in poSec02-B" id="openModal2">
+            完全無料でお問い合わせ
+          </a>
+          <a class="btn01 set-in poSec02-A" id="openModal2">
+            <i class="far fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="colum1 bg04">
+    </div>
+
+          <!-- コンテンツ＿Type.2　2カラム　画像＞見出し -->
+          <section class="w_max fadein02">
+            <div class="w_in flexStart-B set" id="shadow">
+              <div class="colum2 data03">
+              </div>
+              <div class="colum2">
+                <h1>評価後の対策</h1>
+                <p>＿＿＿＿＿＿</p><br>
+                <p></p>
+                <p>被リンクの改善後、アクセス数増加</p>
+                <p>タグの適正配置に置ける、契約数のUP</p>
+                <br><br>
+                <h1 class="f_gold">お客様の声</h1>
+                <p>＿＿＿＿＿＿</p><br>
+                <h3 class="f_gold">
+                  「無料解析後、施策の見える可が出来た」
+                </h3>
+                <a class="btn02 set-in poSec01-B" id="openModal2">
+                  完全無料でお問い合わせ
+                </a>
+                <a class="btn01 set-in poSec01-A" id="openModal2">
+                  <i class="far fa-envelope"></i>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <div class="colum1 bg04">
+          </div>
+    
+          <!-- コンテンツ＿Type.2　2カラム　見出し＞画像 -->
+          <section class="w_max fadein02">
+          <div class="w_in flexStart-B-R set" id="shadow">
+            <div class="colum2 data04">
+            </div>
+            <div class="colum2">
+              <h1>評価後の対策</h1>
+              <p>＿＿＿＿＿＿</p><br>
+              <p></p>
+              <p>被リンクの改善後、アクセス数増加</p>
+              <p>タグの適正配置に置ける、契約数のUP</p>
+              <br><br>
+              <h1 class="f_gold">お客様の声</h1>
+              <p>＿＿＿＿＿＿</p><br>
+              <h3 class="f_gold">
+                「無料解析後、施策の見える可が出来た」
+              </h3>
+              <a class="btn02 set-in poSec02-B" id="openModal2">
+                完全無料でお問い合わせ
+              </a>
+              <a class="btn01 set-in poSec02-A" id="openModal2">
+                <i class="far fa-envelope"></i>
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </div>
+      <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+      <div id="section03" class="block" data-nav="data-nav">
+
+      <div class="colum1 dark">
+        <a href="#" class="btn-gradation m50_t">
+          集客とSEO＆MEOの関係とは？
+          </a>
+      <p class="f_gold p30_b">
+        <i class="fas fa-cubes"></i> Current state
+      </p>
+    </div>
+
+
+
+        <div class="colum1 fadein02" id="f01">
+          <br>                
+          <h1><p>＿＿＿＿＿＿</p><br>
+            SEO&MEO対策後の背景
+            <p>＿＿＿＿＿＿</p>
+          </h1><br> 
+          <p class="f_gold">
+            ADVANTAGE <i class="fas fa-plus"></i>
+          </p>
+        </div>
+
+        <section class="m50_b fadein02">
+            <dir class="w_in flexStart-C">
+              <div class="colum4">
+                <img src="images/icatch/01.png" alt="" width="250px"><br>
+                集客を自動化<br><br>
+                <div class="container">
+                  <a href="#f01" class="bnt-massage">
+                  それと共に…
+                    <span>売上UPにつながる</span>
+                    </a>
+                  </div>
+              </div>
+              <div class="colum4">
+                <img src="images/icatch/02.png" alt="" width="250px"><br>
+                めんどくさい部分を代行<br><br>
+                <div class="container">
+                  <a href="#f01" class="bnt-massage">
+                  それと共に…
+                    <span>仕事効率の向上</span>
+                    </a>
+                  </div>
+              </div>
+              <div class="colum4">
+                <img src="images/icatch/03.png" alt="" width="250px"><br>
+                専属コンサルタント<br><br>
+                <div class="container">
+                  <a href="#f01" class="bnt-massage">
+                    それと共に
+                    <span>集客の適正化</span>
+                    </a>
+                  </div>
+              </div>
+            </dir>
+        </section>
+
+        
+                    <!-- コンテンツ＿Type.1　縦2カラム　画像＞見出し -->
+                    <section class="w_max fadein02">
+                      <div class="w_in flexStart-A-R set" id="shadow">
+                        <div class="colum2 bg07">
+                        </div>
+                        <div class="colum2 m100">
+                          <h1 class="f_gold">集客の鍵は、SEO＆MEO対策</h1>
+                          <br>
+                          <p>＿＿＿＿＿＿</p><br><br>
+                          <h3 class="f_black">SEOとは➡検索エンジンの最適化</h3>
+                          <h4 class="f_black">SEO「Search Engine Optimization」</h4><br>
+
+                          <h3 class="f_black">MEOとは➡検索エンジンの上位表示</h3>
+                          <h4 class="f_black">MEO「Map Engine Optimization」</h4><br> 
+
+                          <h3 class="f_black">2つの組み合わせで集客はうまくいく</h3> 
+                        </div>
+                      </div>
+                      <div class="colum1 m20">
+                        <a class="cp_btn" id="openModal2">
+                          <i class="far fa-envelope"></i>
+                          完全無料でお問い合わせ
+                        </a>
+                      </div>
+                    </section>
+            <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+              <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+      <div id="section04" class="block block--gray" data-nav="data-nav">
+
+          <div class="colum1 dark">
+              <a href="#" class="btn-gradation m50_t">
+                その関係を裏付ける証拠
+                </a>
+            <p class="f_gold p30_b">
+              <i class="fas fa-clipboard"></i> Evidence
+            </p>
+          </div>
+
+        <div class="colum1 fadein02" id="f02">
+          <br>                
+          <h1><p>＿＿＿＿＿＿</p><br>
+            広告掲載と企業HPの関係性
+            <p>＿＿＿＿＿＿</p>
+          </h1><br> 
+          <p class="f_gold">
+            ADVANTAGE <i class="fas fa-plus"></i>
+          </p>
+        </div>
+
+        <section class="m50_b fadein02">
+            <dir class="w_in flexStart-C">
+              <div class="colum4">
+                <img src="images/icatch/04.png" alt="" width="250px"><br>
+                "口コミサイト"を見た後の<br><br>
+                企業HPを見る確率<br><br>
+                <div class="container">
+                  <a href="#f02" class="bnt-massage2">
+                  70%以上！
+                    <span>その先でお問い合わせが多数</span>
+                    </a>
+                  </div>
+              </div>
+              <div class="colum4">
+                <img src="images/icatch/05.png" alt="" width="250px"><br>
+                "求人サイト"を見た後の<br><br>
+                企業HPを見る確率<br><br>
+                <div class="container">
+                  <a href="#f02" class="bnt-massage2">
+                  88%以上！
+                    <span>その先でお問い合わせが多数</span>
+                    </a>
+                  </div>
+              </div>
+              <div class="colum4">
+                <img src="images/icatch/06.png" alt="" width="250px"><br>
+                企業HP改善＝集客力の改善 <br><br>
+                集客の適正化はネットに隠されている <br><br>
+                <div class="container">
+                  <a href="#f02" class="bnt-massage2">
+                    ネットの適正化方法…
+                    <span>SEO＆MEO対策で完結</span>
+                    </a>
+                  </div>
+              </div>
+            </dir>
+        </section>
+      </div>
+                    <!-- コンテンツ＿Type.1　縦2カラム　画像＞見出し -->
+                    <section class="w_max fadein02">
+                      <div class="w_in flexStart-A-R set" id="shadow">
+                        <div class="colum2 bg07_2">
+                        </div>
+                        <div class="colum2 m100">
+                          <h1 class="f_gold">完全無料で、SEO＆MEO対策</h1>
+                          <br>
+                          <p>＿＿＿＿＿＿</p><br><br>
+                          <h3 class="f_black">SEOとは➡検索エンジンの最適化</h3>
+                          <h4 class="f_black">SEO「Search Engine Optimization」</h4><br>
+
+                          <h3 class="f_black">MEOとは➡検索エンジンの上位表示</h3>
+                          <h4 class="f_black">MEO「Map Engine Optimization」</h4><br> 
+
+                          <h3 class="f_black">2つの組み合わせで集客はうまくいく</h3> 
+                        </div>
+                      </div>
+                      <div class="colum1 m20">
+                        <a class="cp_btn" id="openModal2">
+                          <i class="far fa-envelope"></i>
+                          完全無料でお問い合わせ
+                        </a>
+                      </div>
+                    </section>
+
+        <div class="colum1 dark">
+          <a href="#" class="btn-gradation m50_t">
+            お客様の声
+            </a>
+        <p class="f_gold p30_b">
+          <i class="fas fa-clipboard"></i> Evidence
+        </p>
+      </div>
+
+              <!-- コンテンツ＿Type.2　2カラム　画像＞見出し -->
+      <section class="w_max fadein02">
+        <div class="w_in flexStart-B set dark" id="shadow">
+          <div class="colum2 bg05">
+          </div>
+          <div class="colum2">
+            <h1 class="f_gold">お客様の声</h1>
+            <p>＿＿＿＿＿＿</p><br>
+            <h3 class="f_gold">
+              <i class="fas fa-chart-pie"></i>
+              「SEO&MEO対策をしたら改善点が見えてきた」
+            </h3><br>
+            <h3 class="f_gold">
+              <i class="fas fa-chart-line"></i>
+              「アクセスの向上が具体的な数値として現れた」
+            </h3><br>
+            <h3 class="f_gold">
+              <i class="far fa-envelope"></i>
+              「お問い合わせも増え、売上UPになった」
+            </h3><br>
+          </div>
+        </div>
+      </section>
+
+      <!-- コンテンツ＿Type.2　2カラム　見出し＞画像 -->
+      <section class="w_max fadein02">
+      <div class="w_in flexStart-B-R set dark" id="shadow">
+        <div class="colum2 bg06">
+        </div>
+        <div class="colum2">
+          <h1 class="f_gold">お客様の声</h1>
+          <p>＿＿＿＿＿＿</p><br>
+          <h3 class="f_gold">
+            <i class="fas fa-chart-pie"></i>
+            「完全無料で、この診断はありがたいです」
+          </h3><br>
+          <h3 class="f_gold">
+            <i class="fas fa-chart-line"></i>
+            「早く知っていたら、集客がもっと改善した」
+          </h3><br>
+          <h3 class="f_gold">
+            <i class="far fa-envelope"></i>
+            「お問い合わせ後スムーズに対応してくれた」
+          </h3><br>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+      
+
+  <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+  <div id="section05" class="block" data-nav="data-nav">
+
+    <div class="colum1" id="f01">
+      <br>                
+      <h1><p>＿＿＿＿＿＿</p><br>
+        私たちの提供するサービス
+        <p>＿＿＿＿＿＿</p>
+      </h1><br> 
+      <p class="f_gold">
+        SERVICE <i class="fas fa-handshake"></i></i>
+      </p>
+    </div>
+
+
+          <!-- コンテンツ＿Type.1　縦2カラム　見出し＞画像 -->
+          <section class="w_max fadein02">
+            <div class="w_in flexStart-A set" id="shadow">
+              <div class="colum2 bg08">
+              </div>
+              <div class="colum2 m100">
+                <h1 class="f_gold">完全無料でSEO＆MEO対策を実施</h1>
+                <br>
+                <p>＿＿＿＿＿＿</p><br><br>
+                <h3 class="f_black">集客効果、効率はお墨付きです</h3>
+                <h3 class="f_black">SEO＆MEOを知らなくても簡単にできます</h3> 
+                <h3 class="f_black">最新のデータ測定、分析方法で実施します</h3>
+              </div>
+            </div>
+          </section>
+
+
+    <section class="m50 fadein02">
+        <dir class="w_in flexStart-C">
+          <div class="colum4">
+            <img src="images/icatch/07.png" alt="" width="220px"><br>
+          </div>
+          <div class="colum4">
+            <img src="images/icatch/08.png" alt="" width="250px"><br>
+              </div>
+          <div class="colum4">
+            <img src="images/icatch/09.png" alt="" width="220px"><br>
+          </div>
+        </dir>
+        <div class="colum1">
+          <a class="cp_btn" id="openModal2">
+            <i class="far fa-envelope"></i>
+            完全無料でお問い合わせ
+          </a>
+        </div>
+    </section>
+
+    <div class="colum1 dark">
+      <a href="#" class="btn-gradation m50_t">
+        よくある質問
+        </a>
+    <p class="f_gold p30_b">
+      <i class="fas fa-question-circle"></i> Q&A
+    </p>
+  </div>
+
+
+    <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <div id="section06" class="block" data-nav="data-nav">
+
+      <section id="question" class="top_faq">
+        <div class="u_inner">
+          <h2 class="c_ttl">よくあるご質問<i>FAQ</i></h2>
+          <dl>
+            <dt>後日請求は来ないですか？</dt>
+  
+            <dd class="g_ft">
+              サイトがまだない場合でも、ファイナルSEOへのご依頼は可能です。
+              ファイナルSEOはサイト制作機能も持ち合わせているため、そのような方へはサイト制作込みのSEO対策プランをご提示させていただきます。
+              サイト制作、リニューアルのタイミングはSEO実施にこれ以上ないタイミングです。お気軽にお問い合わせください。</dd>
+          </dl>
+          <dl>
+            <dt>自社以外の診断も出来ますか？</dt>
+            <dd class="g_ft">現在他社SEO会社利用中のお客様も是非お問い合わせください。ファイナルSEOのお客様の約半数は
+              他社からの乗り換えです。他社からのSEO会社の乗り換えには少々コツが要りますので、専任コンサルタントがしっかりとサポートさせて頂きます。
+              まずはお問い合わせください。</dd>
+          </dl>
+          <dl>
+            <dt>診断レポートはいつ頃届きますか？</dt>
+            <dd class="g_ft">可能です。ファイナルSEOは内部対策・外部対策・コンテンツ制作と全てのSEOアプローチが可能ですので、
+              状況によりいずれかの対策のみを提供することも可能です。「内部だけ」「外部だけ」「コンテンツだけ」というお客様のご依頼も多くございます。
+              担当コンサルタントにその旨お伝えください。</dd>
+          </dl>
+          <dl>
+            <dt>個人情報を提示するのが不安です。</dt>
+            <dd class="g_ft">
+              可能です。ファイナルSEOは内部対策・外部対策・コンテンツ制作と全てのSEOアプローチが可能ですので、状況によりいずれかの対策のみを
+              提供することも可能です。「内部だけ」「外部だけ」「コンテンツだけ」というお客様のご依頼も多くございます。担当コンサルタントに
+              その旨お伝えください。</dd>
+          </dl>
+          <div class="box u_clearfix">
+            <p><small>あなたのための分析を</small>
+              オーダーメイドのSEO対策で<br>貴社のSEO対策を<br>お手伝いさせてください。<br><a href="https://final-seo.jp/lp9_form/" class="btn btn-flat hover-white m1 pc_area lp9-mail5"><span>無料相談する</span><i class="fas fa-angle-right fa-position-right"></i></a></p>
+            <img src="img/img_pc02.png" alt="">
+          </div>
+        </div>
+        <div class="u_visible_sp top_main endcta g-ka">
+          <ul>
+              <li><a class="u_tel tel splp9-call4" href="tel:0120-173-176"><img class="rem" src="img/ico_fd04.svg">&nbsp;今すぐお電話</a></li>
+            　<li><a class="mail lp9-mail6" href="https://final-seo.jp/lp9_form/">無料相談する<i class="fas fa-angle-right fa-position-reright3"></i></a></li>
+          </ul>
+        </div>
+      </section>
+
+
+      <details class="m20">
+        <summary class="f_fm01">クリックして表示</summary>
+        <div class="details-content">
+          <p>詳細コンテンツ</p>
+          <p>詳細コンテンツ</p>
+          <p>詳細コンテンツ</p>
+        </div>
+      </details>
+
+      
+      <details class="m20">
+        <summary class="f_fm01">クリックして表示</summary>
+        <div class="details-content">
+          <p>詳細コンテンツ</p>
+          <p>詳細コンテンツ</p>
+          <p>詳細コンテンツ</p>
+        </div>
+      </details>
+
+      
+      <details class="m20">
+        <summary class="f_fm01">クリックして表示</summary>
+        <div class="details-content">
+          <p>詳細コンテンツ</p>
+          <p>詳細コンテンツ</p>
+          <p>詳細コンテンツ</p>
+        </div>
+      </details>
+
+  <div class="colum1" id="f01">
+    <br>                
+    <h1><p>＿＿＿＿＿＿</p><br>
+      手続きの流れ
+      <p>＿＿＿＿＿＿</p>
+    </h1><br> 
+    <p class="f_gold">
+      Rate plan <i class="fas fa-tasks fa-lg"></i>
+    </p>
+  </div>
+
+
+
+<div class="colum1">
+  <a class="cp_btn2" id="openModal2">
+    <i class="far fa-envelope"></i>
+    完全無料でお問い合わせ
+  </a>
+</div>
+<br>
+      </div>
+
+          <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+    <div id="section07" class="block" data-nav="data-nav">
+
+      <div class="colum1" id="f01">
+        <br>                
+        <h1><p>＿＿＿＿＿＿</p><br>
+          料金プラン
+          <p>＿＿＿＿＿＿</p>
+        </h1><br> 
+        <p class="f_gold">
+          Rate plan <i class="fas fa-yen-sign"></i>
+        </p>
+      </div>
+    
+      <table class="table">
+        <thead>
+            <tr>
+                <td></td>
+                <th scope="col">完全無料０円！</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th></th>
+                <td data-label="内容" class="txt">
+                  <img src="images/icon/plan01.png" alt="" width="300px">
+                </td>
+                <td data-label="価格" class="price"></td>
+            </tr>
+            <tr>
+              <th>ネット流入率</th>
+              <td data-label="内容" class="txt">ネットからの集客率UP</td>
+              <td data-label="価格"class="price">"完全無料 0円"</td>
+          </tr>
+          <tr>
+              <th>エリア流入率</th>
+              <td data-label="内容" class="txt">エリア(現地)からの集客率UP</td>
+              <td data-label="価格"class="price">"完全無料 0円"</td>
+          </tr>
+        <tr>
+              <th>エリア適正率</th>
+              <td data-label="内容" class="txt">エリア(現地)からの集客効率UP</td>
+              <td data-label="価格" class="price">"完全無料 0円"</td>
+          </tr>
+            <tr>
+              <th>差別化</th>
+              <td data-label="内容" class="txt">差別化施工による集客率UP</td>
+              <td data-label="価格"class="price">"完全無料 0円"</td>
+          </tr>
+          <tr>
+              <th>コスト削減</th>
+              <td data-label="内容" class="txt">費用対効果UP</td>
+              <td data-label="価格"class="price">"完全無料 0円"</td>
+          </tr>
+          <tr>
+            <th>自社広告率</th>
+            <td data-label="内容" class="txt">広告費運用の適正化</td>
+            <td data-label="価格"class="price">"完全無料 0円"</td>
+        </tr>
+        </tbody>
+    </table> 
+    
+    <div class="colum1">
+      <a class="cp_btn2" id="openModal2">
+        <i class="far fa-envelope"></i>
+        完全無料でお問い合わせ
+      </a>
+    </div>
+    <br>
+          </div>
+      <!-- モーダルエリアここから -->
+<section id="modalArea" class="modalArea">
+  <div id="modalBg" class="modalBg"></div>
+  <div class="modalWrapper">
+    <div class="modalContents">
+
+</div>
+    <div id="closeModal" class="closeModal">
+      <div id="cansel">閉じる <i class="fas fa-angle-right"></i></div>
+      <script src="https://sdk.form.run/js/v2/embed.js"></script>
+        <div id="contact" class="formrun-embed" data-formrun-form="@reglos-wevies-1594800369"
+            data-formrun-redirect="true">
+        </div>
+    </div>
+  </div>
+</section>
+<!-- モーダルエリア終わり -->
+<!-- 
+      <div id="section06" class="block block--gray" data-nav="data-nav">
+      </div> -->
+     </div>
+    </main>
+
+        <!-- ################################
+      #
+      #＿＿フッター
+      #
+      ##################################-->
+    <footer class="footer">
+
+      <dir class="w_in m20 flexStart-C">
+        <div class="p10_L">
+          <i class="fas fa-cubes fa-lg"></i>
+          <a href="#section01" class="btn03">集客戦略</a>
+        </div>
+        <div class="p10_L">
+         <i class="fas fa-sitemap fa-lg"></i>
+         <a href="#section02" class="btn03">事例データ</a>
+        </div>
+        <div class="p10_L">
+          <i class="fas fa-clipboard fa-lg"></i>
+          <a href="#section03" class="btn03">現状把握</a>
+        </div>
+        <div class="p10_L">        
+          <i class="fas fa-crown fa-lg"></i>
+          <a href="#section04" class="btn03">エビデンス</a>
+        </div>
+        <div class="p10_L">        
+          <i class="fas fa-user fa-lg"></i>
+          <a href="#section05" class="btn03">お客様の声</a>
+        </div>
+        <div class="p10_L">        
+          <i class="fas fa-tasks fa-lg"></i>
+          <a href="#section06" class="btn03">手続きの流れ</a>
+        </div>
+        <div class="p10_L">        
+          <i class="fas fa-yen-sign fa-lg"></i>
+          <a href="#section06" class="btn03">料金プラン</a>
+        </div>
+    </dir>
+
+    <div class="w_in flexStart-C">
+      <div>
+        <nav>
+          <ul class="footer-nav">
+            <li class="logo">
+              <h3>運営会社</h3>
+              <p>＿＿＿＿＿＿</p>
+            </li>
+            <li>株式会社リグロス</li>
+            <li>東京都台東区東上野3-18-1 宝永ビル4F</li>
+            <li>TEL:03-4405-5679/FAX:03-4405-5679</li>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+    <!-- copyright -->
+    </footer>
+    <div class="set">
+      <p class="set-in footerPos">
+        @2020 Wevies SEO Presented by REGLOS
+      </p>
+    </div>
+<script>
+  	//フェードイン用のコードです
+	$(function(){
+		$(window).on('load scroll', function() {
+			$(".show").each(function() {
+				var winScroll = $(window).scrollTop();
+				var winHeight = $(window).height();
+				var scrollPos = winScroll + (winHeight * 0.9);
+				if($(this).offset().top < scrollPos) {
+					$(this).css({opacity: 1, transform: 'translate(0, 0)'});
+				}
+			});
+		});
+	});
+	//フェードイン用のコードはここまでです
+
+	//ヘッダーの高さと背景色の変更
+	$(function () {
+		const header = $('#header');
+		$(window).on('load scroll' ,function () {
+			var headerHeight = header.innerHeight();
+
+			$(window).on('scroll' ,function () {
+				if ( $(this).scrollTop() > 100 ) {
+					header.addClass('min-header');
+				} else {
+					header.removeClass('min-header');
+				}
+			});
+		});
+});
+</script>
+  </body>
+
+</html>
